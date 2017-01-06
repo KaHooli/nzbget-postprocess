@@ -14,7 +14,9 @@ Aims for this Docker image:
         * [ ] "subliminal<2"
         * [ ] qtfaststart
     * [ ] FFmpeg
+  * [ ] Add script directory to [NZBGet *ScriptDir* setting](https://github.com/nzbget/nzbget/issues/181)
 * [ ] Install [nzbToMedia script](https://github.com/clinton-hall/nzbToMedia)
   * [ ] Dependancies
     * [x] p7zip *(installed with NZBGet image)*
     * [x] FFmpeg *(installed with MP4 Automator)*
+  * [ ] Add script directory to [NZBGet *ScriptDir* setting](https://github.com/nzbget/nzbget/issues/181)
