@@ -6,15 +6,15 @@ RUN apk add --no-cache git
 
 # Install MP4 Automator
 RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/mp4_automator
-RUN apk add --no-cache py-setuptools py-pip
-RUN pip install --upgrade PIP --quiet
-RUN pip install requests --quiet
-RUN pip install requests[security] --quiet
-RUN pip install requests-cache --quiet
-RUN pip install babelfish --quiet
-RUN pip install "guessit<2" --quiet
-RUN pip install "subliminal<2" --quiet
-RUN pip install qtfaststart --quiet
+RUN apk add --no-cache py-setuptools py-pip python-dev libffi-dev gcc musl-dev openssl-dev
+RUN pip install --upgrade PIP
+RUN pip install requests
+RUN pip install requests[security]
+RUN pip install requests-cache
+RUN pip install babelfish
+RUN pip install "guessit<2"
+RUN pip install "subliminal<2"
+RUN pip install qtfaststart
 
 #Set MP4_Automator script settings in NZBGet settings
 RUN echo 'NZBGetPostProcess.py:MP4_FOLDER=/scripts/MP4_Automator' >> /config/nzbget.conf
