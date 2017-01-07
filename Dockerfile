@@ -9,7 +9,7 @@ RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/
 RUN apk add --no-cache py-setuptools py-pip
 RUN pip install --upgrade PIP
 RUN pip install requests
-RUN pip install "requests[security]"
+RUN pip install requests\[security\]
 RUN pip install requests-cache
 RUN pip install babelfish
 RUN pip install "guessit<2"
