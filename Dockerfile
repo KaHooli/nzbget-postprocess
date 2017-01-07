@@ -28,8 +28,8 @@ RUN echo 'NZBGetPostProcess.py:MP4_FOLDER=/scripts/MP4_Automator' >> /config/nzb
 RUN echo 'NZBGetPostProcess.py:SHOULDCONVERT=True' >> /config/nzbget.conf
 
 #Check if MP4 Automator config exists in /config, copy if not
-RUN cp -n /scripts/MP4_Automator/autoProcess.ini.sample /config/autoProcess.ini
-RUN ln -s /config/autoProcess.ini /scripts/MP4_Automator/autoProcess.ini
+ONBUILD RUN cp -n /scripts/MP4_Automator/autoProcess.ini.sample /config/autoProcess.ini
+ONBUILD RUN ln -s /config/autoProcess.ini /scripts/MP4_Automator/autoProcess.ini
 
 # Install nzbToMedia
 RUN apk add --no-cache git
