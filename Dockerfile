@@ -6,7 +6,14 @@ RUN apk add --no-cache git
 
 # Install MP4 Automator
 RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/mp4_automator
-RUN apk add --no-cache py-setuptools py-pip python-dev libffi-dev gcc musl-dev openssl-dev
+RUN apk add --no-cache \
+  py-setuptools \
+  py-pip \
+  python-dev \
+  libffi-dev \
+  gcc \
+  musl-dev \
+  openssl-dev
 RUN pip install --upgrade PIP
 RUN pip install requests
 RUN pip install requests[security]
@@ -21,7 +28,7 @@ RUN echo 'NZBGetPostProcess.py:MP4_FOLDER=/scripts/MP4_Automator' >> /config/nzb
 RUN echo 'NZBGetPostProcess.py:SHOULDCONVERT=True' >> /config/nzbget.conf
 
 #Check if MP4 Automator config exists in /config, copy if not
-RUN [[ ! -e /config/autoProcess.ini ]] && cp /scripts/MP4_Automator/autoProcess.ini.sample /config/autoProcess.ini
+RUN cp -n /scripts/MP4_Automator/autoProcess.ini.sample /config/autoProcess.ini
 RUN ln -s /config/autoProcess.ini /scripts/MP4_Automator/autoProcess.ini
 
 # Install nzbToMedia
