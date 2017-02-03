@@ -1,2 +1,3 @@
 #!/bin/bash
-git -C /mp4_automator/ pull
+git -C /scripts/MP4_Automator/ reset HEAD --hard
+git -C /scripts/MP4_Automator/ pull
