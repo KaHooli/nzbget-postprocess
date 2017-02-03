@@ -5,7 +5,7 @@ MAINTAINER KaHooli
 RUN apk add --no-cache git
 
 # Install MP4 Automator
-RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/mp4_automator
+RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/MP4_Automator
 RUN apk add --no-cache \
   py-setuptools \
   py-pip \
