@@ -35,6 +35,11 @@ ONBUILD RUN ln -s /config/autoProcess.ini /scripts/MP4_Automator/autoProcess.ini
 RUN apk add --no-cache git
 RUN git clone https://github.com/clinton-hall/nzbToMedia.git /scripts/nzbToMedia
 
+#Check if nzbToMedia config exists in /config, copy if not
+ONBUILD RUN cp -n /scripts/nzbToMedia/autoProcessMedia.cfg /config/autoProcessMedia.cfg
+ONBUILD RUN rm /scripts/nzbToMedia/autoProcessMedia.cfg
+ONBUILD RUN ln -s /config/autoProcessMedia.cfg /scripts/nzbToMedia/autoProcessMedia.cfg
+
 #Set MP4_Automator script settings in NZBGet settings
 RUN echo 'nzbToCouchPotato.py:auto_update=1' >> /config/nzbget.conf
 RUN echo 'nzbToCouchPotato.py:cpsCategory=Movie' >> /config/nzbget.conf
