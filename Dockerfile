@@ -23,6 +23,9 @@ RUN pip install babelfish
 RUN pip install "guessit<2"
 RUN pip install "subliminal<2"
 RUN pip install qtfaststart
+# As per https://github.com/mdhiggins/sickbeard_mp4_automator/issues/643
+RUN pip uninstall stevedore
+RUN pip install stevedore==1.19.1
 
 #Set MP4_Automator script settings in NZBGet settings
 RUN echo 'NZBGetPostProcess.py:MP4_FOLDER=/scripts/MP4_Automator' >> /config/nzbget.conf
