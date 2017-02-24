@@ -13,7 +13,8 @@ RUN apk add --no-cache \
   libffi-dev \
   gcc \
   musl-dev \
-  openssl-dev
+  openssl-dev \
+  ffmpeg
 RUN pip install --upgrade PIP
 RUN pip install requests
 RUN pip install requests[security]
