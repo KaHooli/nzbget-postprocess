@@ -10,5 +10,5 @@ pip install --upgrade babelfish
 pip install --upgrade "guessit<2"
 pip install --upgrade "subliminal<2"
 pip install --upgrade qtfaststart
-pip uninstall stevedore
-install stevedore==1.19.1
+pip uninstall --yes stevedore
+pip install stevedore==1.19.1
