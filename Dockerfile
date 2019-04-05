@@ -7,7 +7,8 @@ VOLUME /scripts
 RUN apk add --no-cache git
 
 # Install MP4 Automator
-RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/MP4_Automator
+RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/SMA-TV
+RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/SMA-Movie
 RUN apk add --no-cache \
   py-setuptools \
   py-pip \
@@ -30,7 +31,8 @@ ONBUILD RUN pip uninstall stevedore
 ONBUILD RUN pip install stevedore==1.19.1
 
 #Set MP4_Automator script settings in NZBGet settings
-RUN echo 'NZBGetPostProcess.py:MP4_FOLDER=/scripts/MP4_Automator' >> /config/nzbget.conf
+RUN echo 'NZBGetPostProcess.py:MP4_FOLDER=/scripts/SMA-TV' >> /config/nzbget.conf
+RUN echo 'NZBGetPostProcess.py:MP4_FOLDER=/scripts/SMA-Movie' >> /config/nzbget.conf
 RUN echo 'NZBGetPostProcess.py:SHOULDCONVERT=True' >> /config/nzbget.conf
 
 # Install nzbToMedia
@@ -65,7 +67,7 @@ RUN echo 'nzbToSickBeard.py:auto_update=1' >> /config/nzbget.conf
 RUN chmod 775 -R /scripts
 
 #Set script directory setting in NZBGet
-#RUN /app/nzbget -o ScriptDir=/app/scripts,${MP4Automator_dir},/scripts/nzbToMedia
+#RUN /app/nzbget -o ScriptDir=/app/scripts,/scripts/SMA-TV,/scripts/SMA-Movie,/scripts/nzbToMedia
 ONBUILD RUN sed -i 's/^ScriptDir=.*/ScriptDir=\/app\/scripts;\/scripts\/MP4_Automator;\/scripts\/nzbToMedia/' /config/nzbget.conf
 
 #Adding Custom files

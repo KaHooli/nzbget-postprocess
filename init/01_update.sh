@@ -1,8 +1,10 @@
 #!/bin/bash
 apk update
 apk upgrade
-git -C /scripts/MP4_Automator/ reset HEAD --hard
-git -C /scripts/MP4_Automator/ pull
+git -C /scripts/SMA-TV/ reset HEAD --hard
+git -C /scripts/SMA-TV/ pull
+git -C /scripts/SMA-Movie/ reset HEAD --hard
+git -C /scripts/SMA-Movie/ pull
 git -C /scripts/nzbToMedia/ reset HEAD --hard
 git -C /scripts/nzbToMedia/ pull
 chmod -R 0777 /scripts
