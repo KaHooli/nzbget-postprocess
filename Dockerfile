@@ -14,7 +14,7 @@ RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/
 RUN apk update && \
   apk upgrade && \
   apk remove python2 && \
-  apk install -y \
+  apk add --no-cache \
     python3 \
     python3-pip && \
 
