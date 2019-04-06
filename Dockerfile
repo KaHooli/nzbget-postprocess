@@ -30,10 +30,7 @@ RUN apk add --no-cache \
 
 # install pip, venv, and set up a virtual self contained python environment
 RUN python3 -m pip install --user --upgrade pip && \
-  python3 -m pip install --user virtualenv && \
-  mkdir /usr/local/bin/sma && \
-  python3 -m virtualenv /usr/local/bin/sma/env && \
-  /usr/local/bin/sma/env/bin/pip install requests \
+  pip3 install requests \
     requests[security] \
     requests-cache \
     babelfish \
