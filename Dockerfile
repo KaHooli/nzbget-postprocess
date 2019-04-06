@@ -9,6 +9,15 @@ RUN apk add --no-cache git
 # Install MP4 Automator
 RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/SMA-TV
 RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/SMA-Movie
+
+# remove python2, install python3 and git, and install python libraries
+RUN apk update && \
+  apk upgrade && \
+  apk remove python2 && \
+  apk install -y \
+    python3 \
+    python3-pip && \
+
 RUN apk add --no-cache \
   py-setuptools \
   py-pip \
@@ -18,17 +27,21 @@ RUN apk add --no-cache \
   musl-dev \
   openssl-dev \
   ffmpeg
-RUN pip install --upgrade PIP
-RUN pip install requests
-RUN pip install requests[security]
-RUN pip install requests-cache
-RUN pip install babelfish
-RUN pip install "guessit<2"
-RUN pip install "subliminal<2"
-RUN pip install qtfaststart
-# As per https://github.com/mdhiggins/sickbeard_mp4_automator/issues/643
-ONBUILD RUN pip uninstall stevedore
-ONBUILD RUN pip install stevedore==1.19.1
+
+# install pip, venv, and set up a virtual self contained python environment
+RUN python3 -m pip install --user --upgrade pip && \
+  python3 -m pip install --user virtualenv && \
+  mkdir /usr/local/bin/sma && \
+  python3 -m virtualenv /usr/local/bin/sma/env && \
+  /usr/local/bin/sma/env/bin/pip install requests \
+    requests[security] \
+    requests-cache \
+    babelfish \
+    'guessit<2' \
+    'subliminal<2' \
+    'stevedore==1.19.1' \
+    python-dateutil \
+    qtfaststart && \
 
 #Set MP4_Automator script settings in NZBGet settings
 RUN echo 'NZBGetPostProcess.py:MP4_FOLDER=/scripts/SMA-TV' >> /config/nzbget.conf
