@@ -16,7 +16,7 @@ RUN apk update && \
   apk del python2 && \
   apk add --no-cache \
     python3 \
-    python3-pip && \
+    py3-setuptools
 
 RUN apk add --no-cache \
 #  py-setuptools \
