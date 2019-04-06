@@ -38,7 +38,7 @@ RUN python3 -m pip install --user --upgrade pip && \
     'subliminal<2' \
     'stevedore==1.19.1' \
     python-dateutil \
-    qtfaststart && \
+    qtfaststart
 
 #Set MP4_Automator script settings in NZBGet settings
 RUN echo 'NZBGetPostProcess.py:MP4_FOLDER=/scripts/SMA-TV' >> /config/nzbget.conf
