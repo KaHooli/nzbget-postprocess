@@ -19,13 +19,11 @@ RUN apk update && \
     py3-setuptools
 
 RUN apk add --no-cache \
-#  py-setuptools \
-#  py-pip \
-#  python-dev \
-#  libffi-dev \
-#  gcc \
-#  musl-dev \
-#  openssl-dev \
+  python3-dev \
+  libffi-dev \
+  gcc \
+  musl-dev \
+  openssl-dev \
   ffmpeg
 
 # install pip, venv, and set up a virtual self contained python environment

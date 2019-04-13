@@ -9,7 +9,7 @@ git -C /scripts/nzbToMedia/ reset HEAD --hard
 git -C /scripts/nzbToMedia/ pull
 chmod -R 0777 /scripts
 chown -R nobody:nogroup /scripts
-pip3 install --upgrade pip3
+pip3 install --upgrade pip
 pip3 install --upgrade requests
 pip3 install --upgrade requests[security]
 pip3 install --upgrade requests-cache
