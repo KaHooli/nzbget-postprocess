@@ -1,4 +1,4 @@
-FROM linuxserver/nzbget
+FROM linuxserver/nzbget:testing
 MAINTAINER KaHooli
 
 VOLUME /scripts
