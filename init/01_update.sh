@@ -9,14 +9,14 @@ git -C /scripts/nzbToMedia/ reset HEAD --hard
 git -C /scripts/nzbToMedia/ pull
 chmod -R 0777 /scripts
 chown -R nobody:nogroup /scripts
-pip install --upgrade PIP
-pip install --upgrade requests
-pip install --upgrade requests[security]
-pip install --upgrade requests-cache
-pip install --upgrade babelfish
-pip install --upgrade "guessit<2"
-pip install --upgrade "subliminal<2"
-pip install --upgrade python-dateutil
-pip install --upgrade qtfaststart
-pip uninstall --yes stevedore
-pip install stevedore==1.19.1
+pip3 install --upgrade pip3
+pip3 install --upgrade requests
+pip3 install --upgrade requests[security]
+pip3 install --upgrade requests-cache
+pip3 install --upgrade babelfish
+pip3 install --upgrade "guessit<2"
+pip3 install --upgrade "subliminal<2"
+pip3 install --upgrade python-dateutil
+pip3 install --upgrade qtfaststart
+pip3 uninstall --yes stevedore
+pip3 install stevedore==1.19.1
