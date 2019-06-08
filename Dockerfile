@@ -13,7 +13,7 @@ RUN apk update && \
   apk add --no-cache \
     python3 \
     py3-setuptools
-RUN echo 'alias python=python3' >> ~/.bashrc
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Install MP4 Automator
 RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /scripts/MP4_Automator
